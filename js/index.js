@@ -8,6 +8,8 @@ const center = { x: canvas.width / 2, y: canvas.height / 2 };
 const mouse = { x: 0, y: 0 };
 
 
+// from Background.js
+background()
 
 addEventListener("mousemove", (event) => {
   mouse.x = event.clientX;
@@ -25,5 +27,3 @@ addEventListener("click", () => {
   playerShip.shoot();
 });
 
-// from Background.js
-background()
