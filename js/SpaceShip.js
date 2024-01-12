@@ -69,3 +69,16 @@ class SpaceShip {
     this.draw();
   }
 }
+
+let baseImage = new Image();
+let shootingImage = new Image();
+
+baseImage.src = "../images/Klaed - Dreadnought - Base.png";
+shootingImage.src = "../images/Klaed - Dreadnought - Weapons.png";
+
+const shipImages = {
+    base: baseImage,
+    shooting: shootingImage,
+};
+
+let playerShip = new SpaceShip(shipImages, 0);
