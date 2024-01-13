@@ -27,3 +27,4 @@ addEventListener("click", () => {
   playerShip.shoot();
 });
 
+console.log(playerShip)

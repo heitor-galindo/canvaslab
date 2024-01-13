@@ -16,6 +16,7 @@ let currentSprite = 0;
 
 let starBlink = 0;
 let starFrame = 0;
+let starsRotation = 0;
 
 function background() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -23,9 +24,9 @@ function background() {
   ctx.translate(canvas.width / 2, canvas.height / 2);
   ctx.drawImage(
     backgroundImageVoid,
-    (currentSprite * 5760) / 8,
+    (5760 / 9) * currentSprite,
     0,
-    5760 / 8,
+    5760 / 9,
     360,
     -canvas.width / 2,
     -canvas.height / 2,
@@ -41,7 +42,7 @@ function background() {
   ctx.save();
   ctx.translate(canvas.width / 2, canvas.height / 2);
   ctx.drawImage(
-    backgroundImageStars,
+    backgroundImageStarsDuo,
     (5760 / numberOfSpritesStars) * starBlink,
     0,
     5760 / 9,
@@ -55,10 +56,24 @@ function background() {
 
   ctx.save();
   ctx.translate(canvas.width / 2, canvas.height / 2);
+
   ctx.drawImage(
-    backgroundImageStarsDuo,
+    backgroundImageStars,
     (5760 / numberOfSpritesStars) * starBlink,
     0,
+    5760 / 9,
+    360,
+    -canvas.width/2,
+    -canvas.height/2,
+    canvas.width,
+    canvas.height
+  );
+
+  ctx.rotate(starsRotation);
+  ctx.drawImage(
+    backgroundImageStars,
+    (5760 / numberOfSpritesStars) * starBlink,
+    360 / 3,
     5760 / 9,
     360,
     -canvas.width / 2,
@@ -67,6 +82,8 @@ function background() {
     canvas.height
   );
   ctx.restore();
+
+  starsRotation = starsRotation + 0.0001;
 
   let starStagger = 8;
   if (starFrame % starStagger == 0) {
